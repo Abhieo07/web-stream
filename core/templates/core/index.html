@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        
+        <script>
+            let name = {{ names|safe }};
+            function createlist(names,nameVar) {
+                for (i in names) {
+                    console.log(names[i])
+                    //let nameVar = document.createElement('div');
+                    nameVar.innerHTML=names[i];
+                }
+            }
+            
+            var content = document.querySelector('#container');
+            createlist(name,content)
+        </script>
+    </head>
+    <body>
+        
+        <h1>Using Ajax</h1>
+        <form action='' method='POST'>
+            {% csrf_token %}
+            <input type="text" placeholder="name" name="names"id="names">
+            <button id="submit">Submit</button>
+            
+            <div id="container"></div>
+        </form>
+        
+        <ul>
+            {% for name in names %}
+                <li>{{ name }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

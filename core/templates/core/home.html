@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Face Time</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free Web tutorials">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="author" content="John Doe">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            // let video = null;
+            // let canvas = null;
+            // let photo = null;
+            // let startbutton = null;
+
+            // startbutton = document.getElementById("startbutton");
+            // canvas = document.getElementById("canvas");
+            // photo = document.getElementById("photo");
+            // video = document.getElementById("video");
+
+            // startbutton.addEventListener('click',async function() {
+            //     let stream = await navigator.mediaDevices.getUserMedia({video : true, audio : false})
+            //     video.srcObject = stream
+            // })
+
+            // startbutton.addEventListener('click',function() {
+            //     canvas.getContext('2d').drawImage(video,0,0,canvas.width,canvas.height)
+            //     let image_data_url = canvas.toDataURL('image/jpeg');
+            //     document.querySelector('#container').innerHTML = "<input value='image_data_url' name='picture' id='picture'>"
+            //     document.querySelector('#container2').innerHTML = "<input value='gautam' name='name' id='name'>"
+            // })
+
+        </script>
+    </head>
+    <body>
+        <h1>Face Upload</h1>
+        {% for message in messages %}
+        <h2 style="text-align:right; top: 0; right: 0;">{{ message }}</h2>
+        {% endfor %}
+        <img id="video" src="{% url 'home' %}" width="50%">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="text" value="gautam">
+            
+            <!-- <div id="container"></div>
+            <canvas id="canvas"> </canvas>
+                <div class="output">
+                    <img id="photo" alt="The screen capture will appear in this box." />
+                </div>
+                <button id="startbutton">click</button> -->
+            </form>
+    </body>
+</html>
